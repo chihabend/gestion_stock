@@ -44,15 +44,15 @@ export class DatabaseStorage implements IStorage {
           ilike(products.name, `%${search}%`),
           ilike(products.description, `%${search}%`)
         )
-      );
+      ) as typeof query;
     }
 
     if (sortBy === 'name') {
-      query = query.orderBy(products.name);
+      query = query.orderBy(products.name) as typeof query;
     } else if (sortBy === 'quantity') {
-      query = query.orderBy(desc(products.quantity));
+      query = query.orderBy(desc(products.quantity)) as typeof query;
     } else {
-      query = query.orderBy(desc(products.created_at));
+      query = query.orderBy(desc(products.created_at)) as typeof query;
     }
 
     return await query;
@@ -82,7 +82,7 @@ export class DatabaseStorage implements IStorage {
 
   async deleteProduct(id: number): Promise<boolean> {
     const result = await db.delete(products).where(eq(products.id, id));
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   }
 
   async getProductStats(): Promise<{ totalProducts: number; lowStockCount: number; totalValue: number }> {
