@@ -44,7 +44,7 @@ export default function ProductsPage() {
                 >
                   <Menu className="h-5 w-5" />
                 </Button>
-                <h1 className="ml-3 text-2xl font-semibold text-gray-900">Product Management</h1>
+                <h1 className="ml-3 text-2xl font-semibold text-gray-900">Gestion des Produits</h1>
               </div>
               <div className="flex items-center space-x-4">
                 <Button 
@@ -52,7 +52,7 @@ export default function ProductsPage() {
                   className="bg-primary hover:bg-blue-700 text-white"
                 >
                   <Plus className="h-4 w-4 mr-2" />
-                  Add Product
+                  Ajouter Produit
                 </Button>
                 <div className="flex items-center">
                   <User className="h-6 w-6 text-gray-600" />

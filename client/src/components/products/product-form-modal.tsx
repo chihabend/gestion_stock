@@ -71,16 +71,16 @@ export default function ProductFormModal({
       queryClient.invalidateQueries({ queryKey: ["/api/products"] });
       queryClient.invalidateQueries({ queryKey: ["/api/products/stats"] });
       toast({
-        title: "Success",
-        description: "Product added successfully!",
+        title: "Succès",
+        description: "Produit ajouté avec succès !",
       });
       onClose();
       form.reset();
     },
     onError: () => {
       toast({
-        title: "Error",
-        description: "Failed to add product. Please try again.",
+        title: "Erreur",
+        description: "Échec de l'ajout du produit. Veuillez réessayer.",
         variant: "destructive",
       });
     },
@@ -93,15 +93,15 @@ export default function ProductFormModal({
       queryClient.invalidateQueries({ queryKey: ["/api/products"] });
       queryClient.invalidateQueries({ queryKey: ["/api/products/stats"] });
       toast({
-        title: "Success",
-        description: "Product updated successfully!",
+        title: "Succès",
+        description: "Produit mis à jour avec succès !",
       });
       onClose();
     },
     onError: () => {
       toast({
-        title: "Error",
-        description: "Failed to update product. Please try again.",
+        title: "Erreur",
+        description: "Échec de la mise à jour. Veuillez réessayer.",
         variant: "destructive",
       });
     },
@@ -125,7 +125,7 @@ export default function ProductFormModal({
       <DialogContent className="sm:max-w-lg">
         <DialogHeader>
           <DialogTitle>
-            {mode === "add" ? "Add New Product" : "Edit Product"}
+            {mode === "add" ? "Ajouter un Nouveau Produit" : "Modifier le Produit"}
           </DialogTitle>
         </DialogHeader>
 
@@ -136,9 +136,9 @@ export default function ProductFormModal({
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Product Name</FormLabel>
+                  <FormLabel>Nom du Produit</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Enter product name" />
+                    <Input {...field} placeholder="Saisissez le nom du produit" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -150,14 +150,14 @@ export default function ProductFormModal({
               name="quantity"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Quantity</FormLabel>
+                  <FormLabel>Quantité</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
                       type="number"
                       min="0"
                       onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
-                      placeholder="Enter quantity"
+                      placeholder="Saisissez la quantité"
                     />
                   </FormControl>
                   <FormMessage />
@@ -175,7 +175,7 @@ export default function ProductFormModal({
                     <Textarea
                       {...field}
                       rows={3}
-                      placeholder="Brief description of the product"
+                      placeholder="Brève description du produit"
                     />
                   </FormControl>
                   <FormMessage />
@@ -185,7 +185,7 @@ export default function ProductFormModal({
 
             <div className="flex justify-end space-x-3 pt-4">
               <Button type="button" variant="outline" onClick={handleClose}>
-                Cancel
+                Annuler
               </Button>
               <Button
                 type="submit"
@@ -197,7 +197,7 @@ export default function ProductFormModal({
                 ) : (
                   <Save className="h-4 w-4 mr-2" />
                 )}
-                {mode === "add" ? "Add Product" : "Update Product"}
+                {mode === "add" ? "Ajouter Produit" : "Mettre à Jour"}
               </Button>
             </div>
           </form>

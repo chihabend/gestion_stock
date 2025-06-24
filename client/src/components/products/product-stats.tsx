@@ -37,7 +37,7 @@ export default function ProductStats() {
             </div>
             <div className="ml-5 w-0 flex-1">
               <dl>
-                <dt className="text-sm font-medium text-gray-500 truncate">Total Products</dt>
+                <dt className="text-sm font-medium text-gray-500 truncate">Total Produits</dt>
                 <dd className="text-lg font-medium text-gray-900">{stats?.totalProducts || 0}</dd>
               </dl>
             </div>
@@ -53,7 +53,7 @@ export default function ProductStats() {
             </div>
             <div className="ml-5 w-0 flex-1">
               <dl>
-                <dt className="text-sm font-medium text-gray-500 truncate">Low Stock</dt>
+                <dt className="text-sm font-medium text-gray-500 truncate">Stock Faible</dt>
                 <dd className="text-lg font-medium text-gray-900">{stats?.lowStockCount || 0}</dd>
               </dl>
             </div>
@@ -69,7 +69,7 @@ export default function ProductStats() {
             </div>
             <div className="ml-5 w-0 flex-1">
               <dl>
-                <dt className="text-sm font-medium text-gray-500 truncate">Total Value</dt>
+                <dt className="text-sm font-medium text-gray-500 truncate">Valeur Totale</dt>
                 <dd className="text-lg font-medium text-gray-900">
                   ${stats?.totalValue?.toLocaleString() || 0}
                 </dd>

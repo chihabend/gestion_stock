@@ -32,15 +32,15 @@ export default function DeleteConfirmationModal({
       queryClient.invalidateQueries({ queryKey: ["/api/products"] });
       queryClient.invalidateQueries({ queryKey: ["/api/products/stats"] });
       toast({
-        title: "Success",
-        description: "Product deleted successfully!",
+        title: "Succès",
+        description: "Produit supprimé avec succès !",
       });
       onClose();
     },
     onError: () => {
       toast({
-        title: "Error",
-        description: "Failed to delete product. Please try again.",
+        title: "Erreur",
+        description: "Échec de la suppression. Veuillez réessayer.",
         variant: "destructive",
       });
     },
@@ -61,9 +61,9 @@ export default function DeleteConfirmationModal({
               <AlertTriangle className="h-6 w-6 text-red-600" />
             </div>
             <div>
-              <DialogTitle>Delete Product</DialogTitle>
+              <DialogTitle>Supprimer le Produit</DialogTitle>
               <DialogDescription className="mt-2">
-                Are you sure you want to delete "{product?.name}"? This action cannot be undone.
+                Êtes-vous sûr de vouloir supprimer "{product?.name}" ? Cette action ne peut pas être annulée.
               </DialogDescription>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function DeleteConfirmationModal({
 
         <div className="flex justify-end space-x-3 pt-4">
           <Button variant="outline" onClick={onClose}>
-            Cancel
+            Annuler
           </Button>
           <Button
             variant="destructive"
@@ -80,7 +80,7 @@ export default function DeleteConfirmationModal({
             className="bg-red-600 hover:bg-red-700"
           >
             <Trash2 className="h-4 w-4 mr-2" />
-            Delete
+            Supprimer
           </Button>
         </div>
       </DialogContent>

@@ -45,16 +45,16 @@ export default function ProductTable({ onEdit, onDelete }: ProductTableProps) {
       <div className="px-4 py-5 sm:px-6 border-b border-gray-200">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-lg leading-6 font-medium text-gray-900">Products Inventory</h3>
+            <h3 className="text-lg leading-6 font-medium text-gray-900">Inventaire des Produits</h3>
             <p className="mt-1 max-w-2xl text-sm text-gray-500">
-              Manage your product stock levels and information.
+              Gérez vos niveaux de stock et informations produits.
             </p>
           </div>
           <div className="flex items-center space-x-3">
             <div className="relative">
               <Input
                 type="text"
-                placeholder="Search products..."
+                placeholder="Rechercher des produits..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-64 pl-10"
@@ -68,9 +68,9 @@ export default function ProductTable({ onEdit, onDelete }: ProductTableProps) {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="name">Sort by Name</SelectItem>
-                <SelectItem value="quantity">Sort by Quantity</SelectItem>
-                <SelectItem value="created_at">Sort by Date</SelectItem>
+                <SelectItem value="name">Trier par Nom</SelectItem>
+                <SelectItem value="quantity">Trier par Quantité</SelectItem>
+                <SelectItem value="created_at">Trier par Date</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -82,16 +82,16 @@ export default function ProductTable({ onEdit, onDelete }: ProductTableProps) {
           <thead className="bg-gray-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Product
+                Produit
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Quantity
+                Quantité
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Description
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Created
+                Créé le
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Actions
@@ -133,9 +133,9 @@ export default function ProductTable({ onEdit, onDelete }: ProductTableProps) {
                 <td colSpan={5} className="px-6 py-12 text-center">
                   <div className="flex flex-col items-center">
                     <Box className="h-12 w-12 text-gray-400 mb-4" />
-                    <p className="text-gray-500 text-lg font-medium">No products found</p>
+                    <p className="text-gray-500 text-lg font-medium">Aucun produit trouvé</p>
                     <p className="text-gray-400 text-sm">
-                      {searchQuery ? "Try adjusting your search query" : "Add your first product to get started"}
+                      {searchQuery ? "Essayez d'ajuster votre recherche" : "Ajoutez votre premier produit pour commencer"}
                     </p>
                   </div>
                 </td>
@@ -163,7 +163,7 @@ export default function ProductTable({ onEdit, onDelete }: ProductTableProps) {
                   </td>
                   <td className="px-6 py-4">
                     <div className="text-sm text-gray-900 max-w-xs truncate">
-                      {product.description || "No description provided"}
+                      {product.description || "Aucune description fournie"}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -198,18 +198,18 @@ export default function ProductTable({ onEdit, onDelete }: ProductTableProps) {
       <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
         <div className="flex-1 flex justify-between sm:hidden">
           <Button variant="outline" size="sm">
-            Previous
+            Précédent
           </Button>
           <Button variant="outline" size="sm">
-            Next
+            Suivant
           </Button>
         </div>
         <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
           <div>
             <p className="text-sm text-gray-700">
-              Showing <span className="font-medium">1</span> to{" "}
-              <span className="font-medium">{products.length}</span> of{" "}
-              <span className="font-medium">{products.length}</span> results
+              Affichage de <span className="font-medium">1</span> à{" "}
+              <span className="font-medium">{products.length}</span> sur{" "}
+              <span className="font-medium">{products.length}</span> résultats
             </p>
           </div>
           <div>

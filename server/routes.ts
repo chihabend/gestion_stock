@@ -13,7 +13,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const products = await storage.getProducts(search, sortBy);
       res.json(products);
     } catch (error) {
-      res.status(500).json({ message: "Failed to fetch products" });
+      res.status(500).json({ message: "Échec de récupération des produits" });
     }
   });
 
@@ -23,7 +23,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const stats = await storage.getProductStats();
       res.json(stats);
     } catch (error) {
-      res.status(500).json({ message: "Failed to fetch product stats" });
+      res.status(500).json({ message: "Échec de récupération des statistiques" });
     }
   });
 
@@ -32,17 +32,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const id = parseInt(req.params.id);
       if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid product ID" });
+        return res.status(400).json({ message: "ID produit invalide" });
       }
       
       const product = await storage.getProduct(id);
       if (!product) {
-        return res.status(404).json({ message: "Product not found" });
+        return res.status(404).json({ message: "Produit non trouvé" });
       }
       
       res.json(product);
     } catch (error) {
-      res.status(500).json({ message: "Failed to fetch product" });
+      res.status(500).json({ message: "Échec de récupération du produit" });
     }
   });
 
@@ -54,9 +54,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(201).json(product);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        return res.status(400).json({ message: "Validation error", errors: error.errors });
+        return res.status(400).json({ message: "Erreur de validation", errors: error.errors });
       }
-      res.status(500).json({ message: "Failed to create product" });
+      res.status(500).json({ message: "Échec de création du produit" });
     }
   });
 
@@ -65,22 +65,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const id = parseInt(req.params.id);
       if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid product ID" });
+        return res.status(400).json({ message: "ID produit invalide" });
       }
 
       const validatedData = insertProductSchema.partial().parse(req.body);
       const product = await storage.updateProduct(id, validatedData);
       
       if (!product) {
-        return res.status(404).json({ message: "Product not found" });
+        return res.status(404).json({ message: "Produit non trouvé" });
       }
       
       res.json(product);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        return res.status(400).json({ message: "Validation error", errors: error.errors });
+        return res.status(400).json({ message: "Erreur de validation", errors: error.errors });
       }
-      res.status(500).json({ message: "Failed to update product" });
+      res.status(500).json({ message: "Échec de mise à jour du produit" });
     }
   });
 
@@ -89,17 +89,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const id = parseInt(req.params.id);
       if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid product ID" });
+        return res.status(400).json({ message: "ID produit invalide" });
       }
 
       const success = await storage.deleteProduct(id);
       if (!success) {
-        return res.status(404).json({ message: "Product not found" });
+        return res.status(404).json({ message: "Produit non trouvé" });
       }
       
-      res.json({ message: "Product deleted successfully" });
+      res.json({ message: "Produit supprimé avec succès" });
     } catch (error) {
-      res.status(500).json({ message: "Failed to delete product" });
+      res.status(500).json({ message: "Échec de suppression du produit" });
     }
   });
 

@@ -113,4 +113,5 @@ Changelog:
 
 ```
 Preferred communication style: Simple, everyday language.
+Language: French - All application text and messages should be in French.
 ```
